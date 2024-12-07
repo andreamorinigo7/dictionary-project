@@ -1,7 +1,6 @@
 import React from "react";
 import Meaning from "./Meaning";
 import "./Results.css";
-import Synonyms from "./Synonyms";
 
 export default function Results(props) {
   if (props.results) {
