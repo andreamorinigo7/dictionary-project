@@ -1,8 +1,24 @@
 .synonyms {
-  padding-left: 220px;
+  padding-left: 10px;
+  width: 800px;
+  max-height: 200px;
+  overflow-y: auto;
+  margin: 0 auto;
 }
 
 .synonym-example {
-  padding-left: 10px;
+  padding: 5px 15px;
+  color: #c0c0c0;
+  display: inline-block;
+  border: 1px solid #ededed;
+  border-radius: 20px;
+  margin: 5px 10px;
+  background-color: #ededed;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.synonym-example:hover {
+  background-color: #e3e3e3;
   color: #9cb4d6;
 }
