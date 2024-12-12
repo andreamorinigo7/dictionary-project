@@ -11,4 +11,11 @@ input {
   margin: 0 auto;
   display: block;
   width: 1200px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 60px 0;
+}
+
+.greeting {
+  text-align: center;
 }

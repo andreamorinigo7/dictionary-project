@@ -8,13 +8,22 @@ export default function Dictionary() {
   let [keyword, setKeyword] = useState(" ");
   let [results, setResults] = useState(null);
   let [phonetic, setPhonetic] = useState(null);
+  let [showQuestion, setShowQuestion] = useState(true);
 
   function handleResponse(response) {
     setResults(response.data);
   }
 
+  function handlePhoneticResponse(response) {
+    if (response.data[0].phonetics[0].audio) {
+      setPhonetic(response.data[0].phonetics[0].audio);
+    } else {
+      setPhonetic(null);
+    }
+  }
   function search(event) {
     event.preventDefault();
+    setShowQuestion(false); //hiding the question when search
 
     let apiKey = "o7aa001199a3fa308a4b424t253e2953";
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
@@ -28,13 +37,18 @@ export default function Dictionary() {
     setKeyword(event.target.value);
   }
 
-  function handlePhoneticResponse(response) {
-    console.log(response.data[0].phonetics[0].audio);
-    setPhonetic(response.data[0].phonetics[0].audio);
+  let questionGreeting;
+  if (showQuestion) {
+    questionGreeting = (
+      <h1 className="greeting">What word are you curious about?</h1>
+    );
+  } else {
+    questionGreeting = null;
   }
 
   return (
     <div className="Dictionary">
+      {questionGreeting}
       <form onSubmit={search}>
         <input
           type="search"
