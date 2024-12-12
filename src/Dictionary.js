@@ -4,6 +4,7 @@ import axios from "axios";
 import Results from "./Results";
 import Phonetic from "./Phonetic";
 import Photos from "./Photos";
+import Footer from "./Footer";
 
 export default function Dictionary() {
   let [keyword, setKeyword] = useState(" ");
@@ -79,6 +80,7 @@ export default function Dictionary() {
         <Results results={results} />
         <Photos photos={photos} />
       </section>
+      <Footer />
     </div>
   );
 }
