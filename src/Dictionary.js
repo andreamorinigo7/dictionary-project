@@ -21,16 +21,21 @@ export default function Dictionary() {
       setPhonetic(null);
     }
   }
-  function search(event) {
-    event.preventDefault();
-    setShowQuestion(false); //hiding the question when search
 
+  function search() {
     let apiKey = "o7aa001199a3fa308a4b424t253e2953";
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
 
     let apiSecondaryUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
     axios.get(apiSecondaryUrl).then(handlePhoneticResponse);
+
+    setShowQuestion(false); //hiding the question when search
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
   }
 
   function handleKeywordChange(event) {
@@ -49,7 +54,7 @@ export default function Dictionary() {
   return (
     <div className="Dictionary">
       {questionGreeting}
-      <form onSubmit={search}>
+      <form onSubmit={handleSubmit}>
         <input
           type="search"
           placeholder="Enter word here..."
@@ -57,7 +62,6 @@ export default function Dictionary() {
         />
       </form>
       <Phonetic phonetic={phonetic} />
-
       <Results results={results} />
     </div>
   );
