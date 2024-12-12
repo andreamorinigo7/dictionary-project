@@ -58,7 +58,7 @@ export default function Dictionary() {
   let questionGreeting;
   if (showQuestion) {
     questionGreeting = (
-      <h1 className="greeting">What word are you curious about?</h1>
+      <h1 className="greeting mb-5">What word are you curious about? 🤔</h1>
     );
   } else {
     questionGreeting = null;
