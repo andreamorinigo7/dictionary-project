@@ -1,5 +1,5 @@
 h1 {
-  padding: 30px 100px 0;
+  padding: 0 100px 0;
   text-transform: capitalize;
   font-size: 42px;
   font-weight: 400;
@@ -7,4 +7,5 @@ h1 {
 .phonetics {
   color: #9cb4d6;
   font-size: 16px;
+  margin-bottom: 100px;
 }
